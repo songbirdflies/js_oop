@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Creating Objects III</title>
+
+    </head>
+    <script>
+	 // Now modify your code to use Prototype and the recommended way of OOP we showed in the previous chapter. You may have to change some private variables/methods to attributes to make all of the functionality work. Then make the following adds:
+
+	//Have each vehicle generate a random VIN number (study Math.random & Math.floor) -- also don't worry about duplicates for now
+	//Create a instance method (using prototype) that returns the VIN number
+
+		//THE PROTOTYPE
+	var Vehicle = function Vehicle(name, wheels, passengers, speed) { 
+	  this.name = name;
+	  this.wheels = wheels;
+	  this.passengers = passengers;
+	  this.speed = speed;
+	 this.distance_travelled = 0;
+
+	  this.updateDistanceTravelled = function(){
+	   	this.distance_travelled += this.speed;
+	   };
+	}
+
+	   // ADDING PROPERTY TO NINJA PROTOTYPE
+	  Vehicle.prototype.vin = Math.floor(Math.random()*99999999999999999) + 1000000000000000;
+	 
+	   // ADDING METHODS TO THE NINJA PROTOTYPE
+
+	  Vehicle.prototype.makeNoise = function(noise) {
+	    console.log(noise);
+	  };
+	  Vehicle.prototype.move = function(){
+	  	this.updateDistanceTravelled(); 
+	  	return this;
+	  };
+	  Vehicle.prototype.checkMiles = function(){
+	  	console.log("Distance travelled:", this.distance_travelled);;
+	  }
+
+
+	
+	                      // Create a Bike
+	Bike = new Vehicle("Bike", 2, 1, 10);
+	console.log(Bike);
+	Bike.makeNoise("Ring ring!");
+	Bike.move();
+	Bike.checkMiles();
+
+	                      // Create a Sedan
+	Sedan = new Vehicle("Sedan", 4, 5, 30);
+	console.log(Sedan);
+	Sedan.makeNoise("Honk honk!");
+	Sedan.move().move();
+	Sedan.checkMiles();
+	console.log("Sedan vin number: ", Sedan.vin);
+
+	                      // Create a Bus
+	Bus = new Vehicle("Bus", 6, 20, 20);
+	console.log(Bus);
+
+	Bus.pickUpPassengers = function(addPassengers) { 
+	  this.passengers += addPassengers; //use this.passengers to create instance of itself
+	  console.log("Total Passengers: ", Bus.passengers);
+	}
+	Bus.pickUpPassengers(4);
+	Bus.move();
+	Bus.checkMiles();
+	Bus.move();
+	Bus.pickUpPassengers(6);
+	Bus.checkMiles();
+	
+
+	</script>
+
+	<body>
+
+	</body>
+</html>

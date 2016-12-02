@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Creating Objects I</title>
+
+    </head>
+    <script>
+	 // Create a vehicleConstructor that takes in the name, number of wheels, and number of passengers
+	//Each vehicle should have a makeNoise method
+	
+	function vehicleConstructor(name, wheels, passengers) { 
+	  var vehicle = {};     // here we create the object that will be a vehicle
+	  vehicle.name = name;
+	  vehicle.wheels = wheels;
+	  vehicle.passengers = passengers;
+	  vehicle.makeNoise = function(noise) {
+	    console.log(noise);
+	  }
+	  return vehicle;       // return the object
+	}
+	                      // Create a Bike
+	var Bike = vehicleConstructor("Bike", 2, 1);
+	console.log(Bike);
+	Bike.makeNoise("Ring ring!");
+
+	                      // Create a Sedan
+	var Sedan = vehicleConstructor("Sedan", 4, 5);
+	console.log(Sedan);
+	Sedan.makeNoise("Honk honk!");
+	                      // Create a Bus
+	var Bus = vehicleConstructor("Bus", 6, 20);
+	console.log(Bus);
+
+	Bus.pickUpPassengers = function(addPassengers) { 
+	  this.passengers += addPassengers; //use this.passengers to create instance of itself. 
+	  console.log(Bus.passengers);
+	}
+	Bus.pickUpPassengers(4);
+
+var Bike = y;
+console.log(y);
+
+	</script>
+
+	<body>
+
+	</body>
+</html>

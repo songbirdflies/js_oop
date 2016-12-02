@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Creating Objects 3</title>
+
+    </head>
+    <script>
+    // // Creating Objects 1 
+    //   function VehicleConstructor(name, wheels, passengers) {
+    // 	var vehicle = {};
+    // 	vehicle.name = name;
+    // 	vehicle.wheels = wheels;
+    // 	vehicle.passengers = passengers;
+
+    // 	vehicle.makeNoise = function() {
+    // 		console.log("This vehicle is a " + this.name + " and it makes a noise!");
+    // 	};
+    // 	return vehicle;
+    // }
+
+    // var bike = VehicleConstructor("Bike", 2, 1);
+    // bike.makeNoise = function(){
+    // 	console.log("Ring, ring!");
+    // };
+    // bike.makeNoise();
+
+    // var sedan = VehicleConstructor("Sedan", 4, 5);
+    // sedan.makeNoise = function(){
+    // 	console.log("Honk, Honk!")
+    // }
+    // sedan.makeNoise();
+
+    // var bus = VehicleConstructor("Bus", 6, 10);
+    // bus.pickUpPassengers = function(){
+    // 	bus.passengers += 2;
+    // 	console.log("We now have " + bus.passengers + " passengers on the bus.");
+    // }
+    // bus.pickUpPassengers();
+
+/*    // Creating Objects 2
+    function Vehicle(name, wheels, passengers, speed) {
+    	this.name = name;
+    	this.wheels = wheels;
+    	this.passengers = passengers;
+    	this.speed = speed;
+
+    	this.makeNoise = function() {
+    		console.log("This is a " + this.name + " and it makes noise!");
+    	};
+
+    	var distance_travelled = 0;
+    	var self = this;
+    	var updateDistanceTravelled = function(){
+    		distance_travelled += self.speed;
+    	};
+
+    	this.move = function() {
+    		updateDistanceTravelled();
+    		this.makeNoise();
+    	}
+
+    	this.checkMiles = function(){
+    		console.log("The " + this.name + " has travelled the distance of " + distance_travelled);
+    	}
+    	
+    }
+
+    var bike = new Vehicle("Bike", 2, 1, 5);
+    bike.makeNoise = function(){
+    	console.log("Ring, ring!");
+    };
+    bike.move();
+    bike.checkMiles();
+
+    var sedan = new Vehicle("Sedan", 4, 5, 25);
+    sedan.makeNoise = function(){
+    	console.log("Honk, Honk!")
+    }
+    sedan.move();
+    sedan.checkMiles();
+
+    var bus = new Vehicle("Bus", 6, 10, 15);
+    bus.pickUpPassengers = function(){
+    	bus.passengers += 2;
+    	console.log("We now have " + bus.passengers + " passengers on the bus.");
+    }
+    bus.pickUpPassengers();
+    bus.move();*/
+    
+    // Creating Objects 3
+    function Vehicle(name, wheels, passengers, speed) {
+    	this.name = name;
+    	this.wheels = wheels;
+    	this.passengers = passengers;
+    	this.speed = speed;
+    	this.distance_travelled = 0;
+
+    	
+    	this.updateDistanceTravelled = function(){
+    		this.distance_travelled += this.speed;
+    	};
+
+
+    }
+        Vehicle.prototype.vin = function(){
+            vehicle_vin = Math.floor(Math.random()*99999999999999999) + 1000000000000000;
+            console.log("The vin number is: " + vehicle_vin)
+        }
+
+    	Vehicle.prototype.makeNoise = function() {
+    		console.log("This is a " + this.name + " and it makes noise!");
+    	};
+
+    	Vehicle.prototype.move = function() {
+    		this.updateDistanceTravelled();
+    		this.makeNoise();
+    	}
+
+    	Vehicle.prototype.checkMiles = function(){
+    		console.log("The " + this.name + " has travelled the distance of " + this.distance_travelled);
+    	}
+    	
+    
+
+    var bike = new Vehicle("Bike", 2, 1, 5);
+    bike.makeNoise = function(){
+    	console.log("Ring, ring!");
+    };
+    bike.move();
+    bike.checkMiles();
+
+    var sedan = new Vehicle("Sedan", 4, 5, 25);
+    sedan.makeNoise = function(){
+    	console.log("Honk, Honk!")
+    }
+    sedan.move();
+    sedan.checkMiles();
+    sedan.vin();
+
+    var bus = new Vehicle("Bus", 6, 10, 15);
+    bus.pickUpPassengers = function(){
+    	bus.passengers += 2;
+    	console.log("We now have " + bus.passengers + " passengers on the bus.");
+    }
+    bus.pickUpPassengers();
+    bus.move();
+    bus.vin();
+
+
+/*    function VehicleConstructor(name, wheels, passengers) {
+    	this.name = name;
+    	this.wheels = wheels;
+    	this.passengers = passengers;
+
+    	this.makeNoise = function() {
+    		console.log("This vehicle is a " + this.name + " and it makes a noise!");
+    	};
+
+    }
+
+    var bike = new VehicleConstructor("Bike", 2, 1);
+    bike.makeNoise = function(){
+    	console.log("Ring, ring!");
+    };
+    bike.makeNoise();*/
+
+    </script>
+    <body>
+    	Check your Console...
+    </body>
+
+</html>
